@@ -1,24 +1,50 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+const { Octokit } = require("@octokit/core");
+
+const octokit = new Octokit({
+  auth: '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'
+})
+
 function renderLicenseBadge(license) {
-  return '';
+  if (license === 'mit') {
+    const mit = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    return mit
+  } else if (license === 'mozilla'){
+    const mozilla = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+    return mozilla
+  } else if (license === 'apache'){
+    const apache = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+    return apache
+  } else {
+    return '';
+  }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-  return '';
+async function renderLicenseLink(license) {
+  const response = await octokit.request(`GET /licenses/${license}`, {
+    license: `${license}`,
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
+  return response.data.html_url
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {
-  return '';
+async function renderLicenseSection(license) {
+  const response = await octokit.request(`GET /licenses/${license}`, {
+    license: `${license}`,
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
+  return response.data.body
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+async function generateMarkdown(data) {
+  const link = await renderLicenseLink(data.license)
+  const license_section =await renderLicenseSection(data.license)
+  const badge = renderLicenseBadge(data.license)
   return `# ${data.title}
+${badge}
 
 ## Description 
   ${data.description}
@@ -33,15 +59,11 @@ function generateMarkdown(data) {
 - [Questions](#questions)
 - [License](#license)
 
-
-
 ## Installation
   ${data.installation}
 
 ## Usage
   ${data.usage}
-
-
 
 ## Contributions
   ${data.contribution}
@@ -55,7 +77,9 @@ function generateMarkdown(data) {
   [Email](mailto:${data.email})
 
 ## License
-  ${data.license}
+${link}
+
+${license_section}
 `;
 }
 
