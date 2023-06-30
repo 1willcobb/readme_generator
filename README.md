@@ -10,8 +10,6 @@ This project is a simple readme generator that utalizes the command line and nod
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributions](#contributions)
-- [Testing](#testing)
 - [Questions](#questions)
 - [License](#license)
 
