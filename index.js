@@ -30,7 +30,7 @@ const questions = [
     {
         name: 'license',
         message: 'Choose License: ',
-        choices: ['mit', 'apache-2.0', 'mpl-2.0'],
+        choices: ['mit', 'apache-2.0', 'mpl-2.0', 'none'],
         type: 'list'
     },
     {

@@ -1,17 +1,17 @@
 const { Octokit } = require("@octokit/core");
 
 const octokit = new Octokit({
-  auth: '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'
+  auth: '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'
 })
 
 function renderLicenseBadge(license) {
   if (license === 'mit') {
     const mit = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
     return mit
-  } else if (license === 'mozilla'){
+  } else if (license === 'mpl-2.0'){
     const mozilla = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
     return mozilla
-  } else if (license === 'apache'){
+  } else if (license === 'apache-2.0'){
     const apache = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
     return apache
   } else {
@@ -20,6 +20,10 @@ function renderLicenseBadge(license) {
 }
 
 async function renderLicenseLink(license) {
+  if (license === 'none') {
+    return '';
+  }
+
   const response = await octokit.request(`GET /licenses/${license}`, {
     license: `${license}`,
     headers: {
@@ -30,6 +34,10 @@ async function renderLicenseLink(license) {
 }
 
 async function renderLicenseSection(license) {
+  if (license === 'none') {
+    return '';
+  }
+  
   const response = await octokit.request(`GET /licenses/${license}`, {
     license: `${license}`,
     headers: {
