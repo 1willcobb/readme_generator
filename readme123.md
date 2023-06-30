@@ -1,7 +1,7 @@
-# README Generator
+# asdf
 
 ## Description 
-  A simple way to generate readme.md files with the node.js commandline
+  asd
 
 ## Table of Contents
 
@@ -16,22 +16,22 @@
 
 
 ## Installation
-  install inquirer
+  asd
 
 ## Usage
-  type node index.js into the command line and follow the prompts
+  sad
 
 
 
 ## Contributions
-  You can help out if you want
+  ads
 
 ## Testing
-  to test, type into the command line and get going
+  d
 
 ## Questions
   Please reach out to me if you have any questions about the functionality of the app or installation
-  [GitHub](https://github.com/1willcobb)
+  [GitHub](https://github.com/d)
   [Email](mailto:cobb.will@gmail.com)
 
 ## License
