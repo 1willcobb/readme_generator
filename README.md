@@ -17,6 +17,8 @@ This project is a simple readme generator that utalizes the command line and nod
 
   This app requires instilation of node.js, inquirer, and pulls from the GitHub API. A authorization token will need to be generated.
 
+  [GitHub API TOKEN](https://github.com/settings/tokens/new)
+
 ## Usage
 
   In the terminal, type "node index.js" and follow the prompts. Once you have selected all the prompts a new files titled "README_Generated.md" will appear in your folder.
