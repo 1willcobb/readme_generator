@@ -85,7 +85,7 @@ ${badge}
   [Email](mailto:${data.email})
 
 ## License
-${link}
+[license](${link})
 
 ${license_section}
 `;
