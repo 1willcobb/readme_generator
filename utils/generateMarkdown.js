@@ -1,7 +1,7 @@
 const { Octokit } = require("@octokit/core");
 
 const octokit = new Octokit({
-  auth: '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'
+  auth: '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'
 })
 
 function renderLicenseBadge(license) {

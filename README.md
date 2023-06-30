@@ -27,6 +27,7 @@ This project is a simple readme generator that utalizes the command line and nod
 
 ## Walk Through Video
 
+[Walk Through](https://drive.google.com/file/d/1Gi5ARMso-B_YmQAP_Gd-3xP2MTjGWxHF/view?usp=sharing)
 
 ## Questions
 Please reach out to me if you have any questions about the functionality of the app or installation
