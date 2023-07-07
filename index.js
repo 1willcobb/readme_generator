@@ -30,7 +30,7 @@ const questions = [
     {
         name: 'license',
         message: 'Choose License: ',
-        choices: ['mit', 'apache-2.0', 'mpl-2.0', 'none'],
+        choices: ['mit', 'apache', 'mozilla', 'none'],
         type: 'list'
     },
     {
@@ -44,15 +44,15 @@ const questions = [
 
 ];
 
-async function writeToFile(fileName, data) {
-    const resolved = await data
+function writeToFile(fileName, data) {
+    const resolved = data
     fs.writeFileSync(fileName, resolved)
 }
 
 function init() {
     inquirer.prompt(questions).then((data)=>
     {
-        writeToFile('./README_Generated.md', generateMarkdown(data))
+        writeToFile('./readme_generated/README_Generated.md', generateMarkdown(data))
     });
     
 }
